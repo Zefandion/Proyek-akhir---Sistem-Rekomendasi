@@ -1,5 +1,7 @@
 # Laporan Proyek Machine Learning - Zefandion Benaya Teja
 
+Link repo: https://github.com/Zefandion/Proyek-akhir---Sistem-Rekomendasi.git 
+
 ## Project Overview
 
 Proyek ini bertujuan untuk membangun sistem rekomendasi anime yang efektif, membantu pengguna menemukan anime baru yang mungkin mereka sukai berdasarkan preferensi dan interaksi masa lalu. Industri anime telah berkembang pesat dengan ribuan judul yang tersedia, membuat pengguna kesulitan untuk menemukan konten yang relevan di tengah banyaknya pilihan. Sistem rekomendasi menjadi solusi krusial untuk meningkatkan user experience dan engagement pada platform streaming atau database anime.

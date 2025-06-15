@@ -34,41 +34,6 @@ Sumber Data: Dataset ini dapat diunduh dari Kaggle: https://www.kaggle.com/datas
 
 Jumlah data anime yang tersedia adalah 12294 judul unik, sedangkan data rating mencakup 7.813.737 interaksi rating.
 
-Tentu, saya akan bantu membuat laporan dalam format README.md berdasarkan template yang Anda berikan, mengacu pada proyek sistem rekomendasi anime yang sudah kita diskusikan. Laporan ini akan mencakup setiap bagian dengan penjelasan yang relevan dan disesuaikan dengan implementasi Content-Based Filtering dan Collaborative Filtering menggunakan TensorFlow/Keras.
-
-Berikut adalah isi untuk file README.md Anda:
-
-Laporan Proyek Machine Learning - Sistem Rekomendasi Anime
-Project Overview
-Proyek ini bertujuan untuk membangun sistem rekomendasi anime yang efektif, membantu pengguna menemukan anime baru yang mungkin mereka sukai berdasarkan preferensi dan interaksi masa lalu. Industri anime telah berkembang pesat dengan ribuan judul yang tersedia, membuat pengguna kesulitan untuk menemukan konten yang relevan di tengah banyaknya pilihan. Sistem rekomendasi menjadi solusi krusial untuk meningkatkan user experience dan engagement pada platform streaming atau database anime.
-
-Permasalahan utama yang ingin diselesaikan adalah "information overload" bagi pengguna dan "discovery problem" bagi anime. Pengguna seringkali merasa kewalahan dengan banyaknya pilihan dan membutuhkan panduan personal untuk menemukan konten menarik. Di sisi lain, anime yang bagus mungkin tidak ditemukan oleh target audiensnya jika tidak ada mekanisme rekomendasi yang efektif.
-
-Pendekatan untuk mengatasi masalah ini melibatkan penerapan teknik Machine Learning, khususnya sistem rekomendasi. Dengan menganalisis data preferensi pengguna (rating) dan atribut-atribut anime (genre, tipe), kita dapat memprediksi minat pengguna terhadap anime yang belum pernah mereka tonton. Penelitian menunjukkan bahwa sistem rekomendasi yang dipersonalisasi dapat secara signifikan meningkatkan kepuasan pengguna dan retensi platform.
-
-Referensi:
-[1] F. Ricci, L. Rokach, B. Shapira, and P. B. Kantor, Recommender Systems Handbook. Springer, 2011.
-
-Business Understanding
-Problem Statements
-Kelebihan Informasi (Information Overload): Pengguna dihadapkan pada ribuan judul anime, membuat proses pencarian anime yang sesuai dengan selera pribadi menjadi sangat sulit dan memakan waktu. Ini dapat menyebabkan fatigue dan menurunkan kepuasan pengguna.
-Rendahnya Tingkat Penemuan Konten Baru (Low Content Discovery): Anime-anime baru atau yang kurang populer, meskipun berkualitas tinggi, mungkin tidak mendapatkan eksposur yang cukup dan sulit ditemukan oleh pengguna yang relevan.
-Pengalaman Pengguna yang Tidak Dipersonalisasi: Tanpa sistem rekomendasi, semua pengguna mendapatkan daftar anime yang sama (misalnya, berdasarkan popularitas), tanpa mempertimbangkan preferensi individu, yang dapat mengurangi relevansi dan nilai platform bagi pengguna.
-Goals
-Mempermudah Penemuan Anime: Menyediakan rekomendasi anime yang dipersonalisasi agar pengguna dapat dengan mudah menemukan judul-judul yang relevan dengan selera mereka, mengurangi waktu pencarian dan meningkatkan efisiensi.
-Meningkatkan Eksposur Anime: Membantu anime baru atau yang kurang populer untuk ditemukan oleh audiens yang tepat, mendukung pertumbuhan ekosistem konten anime.
-Meningkatkan Kepuasan dan Keterlibatan Pengguna: Memberikan pengalaman yang lebih personal dan relevan, yang pada akhirnya akan meningkatkan engagement dan retensi pengguna pada platform atau layanan anime.
-Solution Approach
-Untuk meraih tujuan-tujuan di atas, proyek ini mengusulkan dua pendekatan utama dalam membangun sistem rekomendasi:
-
-Content-based Filtering: Pendekatan ini akan merekomendasikan anime kepada pengguna berdasarkan kemiripan atribut-atribut anime itu sendiri (seperti genre, tipe). Jika seorang pengguna menyukai anime dengan genre "Action" dan "Fantasy", sistem akan merekomendasikan anime lain yang memiliki genre serupa.
-Collaborative Filtering (dengan Matrix Factorization menggunakan TensorFlow): Pendekatan ini akan merekomendasikan anime berdasarkan pola interaksi dan preferensi dari sekelompok besar pengguna. Sistem akan menemukan pengguna dengan selera serupa dan merekomendasikan anime yang disukai oleh pengguna "tetangga" tersebut, atau menemukan anime yang sering ditonton bersama. Implementasi ini akan memanfaatkan kekuatan TensorFlow untuk membangun model Matrix Factorization yang dapat mempelajari representasi embedding dari pengguna dan anime.
-Data Understanding
-Bagian ini menjelaskan dataset yang digunakan, struktur, dan karakteristiknya. Dataset yang digunakan berasal dari MyAnimeList.net dan dibagi menjadi dua file: anime.csv dan rating.csv.
-
-Sumber Data: Dataset ini dapat diunduh dari Kaggle: MyAnimeList Dataset.
-Jumlah data anime yang tersedia adalah 12294 judul unik, sedangkan data rating mencakup 7.813.737 interaksi rating.
-
 Variabel-variabel pada dataset anime.csv:
 - anime_id: ID unik untuk setiap anime. (numerik)
 - name: Nama lengkap anime. (teks)

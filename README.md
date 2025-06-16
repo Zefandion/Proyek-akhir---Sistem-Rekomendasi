@@ -1,7 +1,5 @@
 # Laporan Proyek Machine Learning - Zefandion Benaya Teja
 
-Link repo: https://github.com/Zefandion/Proyek-akhir---Sistem-Rekomendasi.git 
-
 ## Project Overview
 
 Proyek ini bertujuan untuk membangun sistem rekomendasi anime yang efektif, membantu pengguna menemukan anime baru yang mungkin mereka sukai berdasarkan preferensi dan interaksi masa lalu. Industri anime telah berkembang pesat dengan ribuan judul yang tersedia, membuat pengguna kesulitan untuk menemukan konten yang relevan di tengah banyaknya pilihan. Sistem rekomendasi menjadi solusi krusial untuk meningkatkan user experience dan engagement pada platform streaming atau database anime.
@@ -149,37 +147,33 @@ Dimana A dan B adalah vektor fitur TF-IDF dari dua anime.
     - Kualitas Tergantung Fitur: Kualitas rekomendasi sangat bergantung pada kekayaan dan deskriptivitas fitur item yang tersedia.
     - Cold-Start Item: Item baru tanpa fitur deskriptif yang cukup akan sulit direkomendasikan.
 - Hasil rekomendasi (output) model Content-Based Filtering:
-    "
-    --- Proses Training Content-Based Filtering: Menghitung Cosine Similarity ---
-    Bentuk Cosine Similarity Matrix: (12294, 12294)
-
-    Contoh Cosine Similarity untuk 'Kimi no Na wa.':
-    name
-    Kimi no Na wa.                                           1.000000
-    Aura: Maryuuin Kouga Saigo no Tatakai                    0.961543
-    Harmonie                                                 0.891655
-    Air Movie                                                0.877767
-    Wind: A Breath of Heart (TV)                             0.873937
-    Wind: A Breath of Heart OVA                              0.867920
-    Kokoro ga Sakebitagatterunda.                            0.864523
-    Suki ni Naru Sono Shunkan wo.: Kokuhaku Jikkou Iinkai    0.820877
-    Clannad Movie                                            0.789141
-    Shakugan no Shana                                        0.769155
-    Name: Kimi no Na wa., dtype: float64
-
-    --- Demonstrasi Rekomendasi Content-Based Filtering ---
+    ```
     Rekomendasi untuk 'Fullmetal Alchemist: Brotherhood':
-                                                    name  \
-    200                              Fullmetal Alchemist   
-    1558   Fullmetal Alchemist: The Sacred Star of Milos   
-    402        Fullmetal Alchemist: Brotherhood Specials   
-    4264                                  Tide-Line Blue   
-    ...
-    2997    25174  
-    2342    72750  
-    2852     6903  
-    6163    14989  
-    "
+                                                    name  genre  type  rating  members
+    200                              Fullmetal Alchemist  Action, Adventure, Comedy, Drama, Fantasy, Magic, Military, Shounen    TV    8.33   600384
+    1558   Fullmetal Alchemist: The Sacred Star of Milos  Action, Adventure, Comedy, Drama, Fantasy, Magic, Military, Shounen  Movie    7.50    87944
+    402        Fullmetal Alchemist: Brotherhood Specials  Adventure, Drama, Fantasy, Magic, Military, Shounen  Special    8.11    67962
+    4264                                  Tide-Line Blue  Action, Adventure, Drama, Military, Shounen    TV    6.77     4670
+    101                       Magi: The Kingdom of Magic  Action, Adventure, Fantasy, Magic, Shounen    TV    8.50   245026
+    268                     Magi: The Labyrinth of Magic  Action, Adventure, Fantasy, Magic, Shounen    TV    8.24   317513
+    290                      Magi: Sinbad no Bouken (TV)  Action, Adventure, Fantasy, Magic, Shounen    TV    8.22    73480
+    795                   Densetsu no Yuusha no Densetsu  Action, Adventure, Fantasy, Magic, Shounen    TV    7.83   130689
+    10953          Chain Chronicle: Haecceitas no Hikari  Action, Adventure, Fantasy, Magic, Shounen    TV    6.57     5678
+    879              Tales of Vesperia: The First Strike  Action, Adventure, Fantasy, Magic, Military  Movie    7.79    30524
+
+    Rekomendasi untuk 'Naruto':
+                                                    name  genre  type  rating  members
+    841                                              Naruto  Action, Comedy, Martial Arts, Shounen, Super Power    TV    7.81   683297
+    1343                                        Naruto x UT  Action, Comedy, Martial Arts, Shounen, Super Power   OVA    7.58    23465
+    1796                                     Rekka no Honoo  Action, Adventure, Martial Arts, Shounen, Super P...    TV    7.44    35258
+    486                            Boruto: Naruto the Movie  Action, Comedy, Martial Arts, Shounen, Super Power  Movie    8.03    74690
+    1472        Naruto: Shippuuden Movie 4 - The Lost Tower  Action, Comedy, Martial Arts, Shounen, Super Power  Movie    7.53    84527
+    1573  Naruto: Shippuuden Movie 3 - Hi no Ishi wo Tsu...  Action, Comedy, Martial Arts, Shounen, Super P...  Movie    7.50    83515
+    2997  Naruto Soyokazeden Movie: Naruto to Mashin to ...  Action, Comedy, Martial Arts, Shounen, Super P...  Movie    7.11    25174
+    2342                             Kurokami The Animation  Action, Martial Arts, Super Power    TV    7.29    72750
+    2852                                       Project ARMS  Action, Martial Arts, Super Power    TV    7.15     6903
+    6163                                          Wolverine  Action, Martial Arts, Super Power    TV    6.24    14989
+    ```
 
 ​Solusi 2: Collaborative Filtering (Matrix Factorization dengan TensorFlow)
 - Pendekatan:
@@ -242,37 +236,33 @@ Setelah dilatih, model dapat memprediksi rating untuk setiap pasangan user-anime
     - Masalah Cold-Start: Sulit memberikan rekomendasi untuk pengguna baru (belum ada riwayat rating) atau item baru (belum ada yang memberi rating).
     - Sparsity Data: Jika matriks interaksi sangat jarang (sedikit rating dibandingkan jumlah user-item), performa model dapat terpengaruh.
 - Hasil rekomendasi (output) dari model Collaborative Filtering:
-    "
-    --- Demonstrasi Rekomendasi Collaborative Filtering (TensorFlow) ---
+    ```
     Rekomendasi untuk User ID: 3
-    158/158 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
-        anime_id                                name  \
-    2153       820                Ginga Eiyuu Densetsu   
-    1217     28977                            Gintama°   
-    491      11061              Hunter x Hunter (2011)   
-    462       4181                Clannad: After Story   
-    283      15417            Gintama&#039;: Enchousen   
-    73         918                             Gintama   
-    443       1575     Code Geass: Hangyaku no Lelouch   
-    454       2904  Code Geass: Hangyaku no Lelouch R2   
-    729      17074    Monogatari Series: Second Season   
-    1320     24701       Mushishi Zoku Shou 2nd Season   
+        anime_id                                name  genre  type  predicted_rating
+    2153       820                Ginga Eiyuu Densetsu  Drama, Military, Sci-Fi, Space   OVA          9.883978
+    1217     28977                            Gintama°  Action, Comedy, Historical, Parody, Samurai, S...    TV          9.841286
+    491      11061              Hunter x Hunter (2011)  Action, Adventure, Shounen, Super Power    TV          9.817928
+    462       4181                Clannad: After Story  Drama, Fantasy, Romance, Slice of Life, Supern...    TV          9.813111
+    283      15417            Gintama&#039;: Enchousen  Action, Comedy, Historical, Parody, Samurai, S...    TV          9.786941
+    73         918                             Gintama  Action, Comedy, Historical, Parody, Samurai, S...    TV          9.776947
+    443       1575     Code Geass: Hangyaku no Lelouch  Action, Mecha, Military, School, Sci-Fi, Super...    TV          9.768796
+    454       2904  Code Geass: Hangyaku no Lelouch R2  Action, Drama, Mecha, Military, Sci-Fi, Super ...    TV          9.758965
+    729      17074    Monogatari Series: Second Season  Comedy, Mystery, Romance, Supernatural, Vampire    TV          9.757915
+    1320     24701       Mushishi Zoku Shou 2nd Season  Adventure, Fantasy, Historical, Mystery, Seine...    TV          9.756355
 
-                                                    genre type  predicted_rating  
-    2153                     Drama, Military, Sci-Fi, Space  OVA          9.883978  
-    1217  Action, Comedy, Historical, Parody, Samurai, S...   TV          9.841286  
-    491             Action, Adventure, Shounen, Super Power   TV          9.817928  
-    462   Drama, Fantasy, Romance, Slice of Life, Supern...   TV          9.813111  
-    283   Action, Comedy, Historical, Parody, Samurai, S...   TV          9.786941  
-    73    Action, Comedy, Historical, Parody, Samurai, S...   TV          9.776947  
-    443   Action, Mecha, Military, School, Sci-Fi, Super...   TV          9.768796  
-    454   Action, Drama, Mecha, Military, Sci-Fi, Super ...   TV          9.758965  
-    ...
-    1244  Adventure, Drama, Mecha, Military, Romance, Sc...  OVA          8.461169  
-    372   Drama, Horror, Mystery, Police, Psychological,...   TV          8.461168  
-    98    Drama, Fantasy, Romance, Slice of Life, Supern...   TV          8.436505  
-    1559                      Comedy, Mystery, Supernatural   TV          8.411389  
-    "
+    Rekomendasi untuk User ID: 5
+        anime_id                                  name  genre  type  predicted_rating
+    774      13125                        Shinsekai yori  Drama, Horror, Mystery, Sci-Fi, Supernatural    TV          9.045642
+    13        5114      Fullmetal Alchemist: Brotherhood  Action, Adventure, Drama, Fantasy, Magic, Mili...    TV          8.966074
+    853      28977                              Gintama°  Action, Comedy, Historical, Parody, Samurai, S...    TV          8.803638
+    1229       267                              Gungrave  Action, Drama, Sci-Fi, Seinen, Super Power    TV          8.624421
+    127      11061                Hunter x Hunter (2011)  Action, Adventure, Shounen, Super Power    TV          8.593192
+    365      17074      Monogatari Series: Second Season  Comedy, Mystery, Romance, Supernatural, Vampire    TV          8.465378
+    1244        81  Mobile Suit Gundam: The 08th MS Team  Adventure, Drama, Mecha, Military, Romance, Sc...   OVA          8.461169
+    372         19                               Monster  Drama, Horror, Mystery, Police, Psychological,...    TV          8.461168
+    98        4181                  Clannad: After Story  Drama, Fantasy, Romance, Slice of Life, Supern...    TV          8.436505
+    1559     31181                       Owarimonogatari  Comedy, Mystery, Supernatural    TV          8.411389
+    ```
 ## Evaluation
 Evaluasi dilakukan untuk mengukur seberapa baik model rekomendasi bekerja dalam memprediksi rating atau menghasilkan rekomendasi yang relevan.
 
@@ -327,21 +317,24 @@ Untuk Content-Based Filtering, metrik yang relevan adalah Precision@K dan Recall
 
 - Hasil Evaluasi Precision@K dan Recall@K untuk Content-Based Filtering:
     Contoh Perhitungan untuk 'Fullmetal Alchemist: Brotherhood' dengan K=10:
-    - Precision@10: `1.0000`
-    - Recall@10: `0.0014`
     
+    Precision@10: 0.6000
+    Recall@10: 0.0006
+
     Interpretasi:
-      - Precision@10 = 1.0000: Dari 10 anime yang direkomendasikan untuk 'Fullmetal Alchemist: Brotherhood', 10 di antaranya (100%)             memiliki setidaknya satu genre yang sama dengan anime input. Ini menunjukkan bahwa semua rekomendasi teratas dianggap relevan             berdasarkan kriteria genre.
-      - Recall@10 = 0.0014: Nilai recall ini mengindikasikan bahwa meskipun model memberikan rekomendasi yang sangat presisi di top-10,         ada sejumlah besar anime "relevan" lainnya di seluruh dataset yang tidak berhasil masuk ke daftar rekomendasi teratas ini. Hal ini        wajar untuk Content-Based Filtering karena "total item relevan" bisa sangat besar (semua anime dengan genre yang sama) dan model          hanya menghasilkan daftar rekomendasi yang relatif pendek (Top-K).
+    Precision@10 = 0.6000: Dari 10 anime yang direkomendasikan untuk 'Fullmetal Alchemist: Brotherhood', 6 di antaranya memiliki setidaknya satu genre yang sama dengan anime input. Ini menunjukkan bahwa 60% dari rekomendasi teratas dianggap relevan berdasarkan kriteria genre.
+    Recall@10 = 0.0006: Nilai recall yang sangat rendah ini mengindikasikan bahwa meskipun model memberikan beberapa rekomendasi relevan di top-10, ada sejumlah besar anime "relevan" lainnya di seluruh dataset yang tidak berhasil masuk ke daftar rekomendasi teratas ini. Hal ini wajar untuk Content-Based Filtering karena "total item relevan" bisa sangat besar (semua anime dengan genre yang sama) dan model hanya menghasilkan daftar rekomendasi yang relatif pendek (Top-K).
 
     Contoh Perhitungan untuk 'Naruto' dengan K=10:
-    - Precision@10: `1.0000`
-    - Recall@10: `0.0014`
+
+    Precision@10: 0.9000
+    Recall@10: 0.0009
 
     Interpretasi:
-      - Precision@10 = 1.0000: Untuk 'Naruto', 10 dari 10 rekomendasi teratas (100%) memiliki setidaknya satu genre yang sama,                  menunjukkan presisi yang sempurna.
-      - Recall@10 = 0.0014: Mirip dengan contoh sebelumnya, recall tetap rendah karena banyaknya potensi item relevan di seluruh dataset.
-  
+
+    Precision@10 = 0.9000: Untuk 'Naruto', 9 dari 10 rekomendasi teratas memiliki setidaknya satu genre yang sama, menunjukkan presisi yang sangat tinggi.
+    Recall@10 = 0.0009: Mirip dengan contoh sebelumnya, recall tetap rendah karena banyaknya potensi item relevan di seluruh dataset.
+
 - Ringkasan Makna:
 Content-Based Filtering menunjukkan presisi yang baik dalam merekomendasikan anime dengan genre yang serupa. Ini berarti rekomendasi yang diberikan kemungkinan besar akan sesuai dengan selera genre pengguna. Namun, kemampuannya untuk menemukan semua anime relevan (Recall) sangat terbatas karena hanya berfokus pada kemiripan fitur dan menghasilkan daftar rekomendasi yang pendek.
 
@@ -354,11 +347,11 @@ Content-Based Filtering menunjukkan presisi yang baik dalam merekomendasikan ani
     RMSE (Root Mean Squared Error) adalah metrik yang umum digunakan untuk mengevaluasi model regresi, termasuk prediksi rating. RMSE mengukur rata-rata magnitudo kesalahan antara nilai prediksi dan nilai aktual.
 
     Rumus RMSE adalah sebagai berikut:
-        RMSE = SQRT( (1/N) * SIGMA( (rui - ^rui)^2 ) )
+        $$RMSE = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_{ui} - \hat{r}_{ui})^2}$$
     Dimana:
-    * N adalah jumlah total rating yang diprediksi.
-    * rui adalah rating aktual yang diberikan oleh pengguna u untuk item i.
-    * ^rui adalah rating yang diprediksi oleh model untuk pengguna u dan item i.
+    * $N$ adalah jumlah total rating yang diprediksi.
+    * $r_{ui}$ adalah rating aktual yang diberikan oleh pengguna $u$ untuk item $i$.
+    * $\hat{r}_{ui}$ adalah rating yang diprediksi oleh model untuk pengguna $u$ dan item $i$.
     
     - Bagaimana Metrik Bekerja:
     RMSE memberikan bobot lebih pada kesalahan prediksi yang besar karena mengkuadratkan selisih antara nilai aktual dan prediksi. Semakin kecil nilai RMSE, semakin baik kinerja model dalam memprediksi rating secara akurat.
@@ -371,7 +364,6 @@ Content-Based Filtering menunjukkan presisi yang baik dalam merekomendasikan ani
     RMSE pada skala rating asli (1-10): 1.6942 (diperoleh dari 0.1882 * (10 - 1))
 
     - Grafik RMSE selama Training dan Validasi:
-    ![image](https://github.com/user-attachments/assets/1616b885-5109-4b71-bb1e-e7c9f5bd5c47)
 
     Gambar 1: Plot RMSE selama proses training dan validasi.    
 

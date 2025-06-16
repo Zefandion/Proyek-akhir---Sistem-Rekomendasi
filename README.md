@@ -327,24 +327,21 @@ Untuk Content-Based Filtering, metrik yang relevan adalah Precision@K dan Recall
 
 - Hasil Evaluasi Precision@K dan Recall@K untuk Content-Based Filtering:
     Contoh Perhitungan untuk 'Fullmetal Alchemist: Brotherhood' dengan K=10:
+    - Precision@10: `1.0000`
+    - Recall@10: `0.0014`
     
-    Precision@10: 0.6000
-    Recall@10: 0.0006
-
     Interpretasi:
-    Precision@10 = 0.6000: Dari 10 anime yang direkomendasikan untuk 'Fullmetal Alchemist: Brotherhood', 6 di antaranya memiliki setidaknya satu genre yang sama dengan anime input. Ini menunjukkan bahwa 60% dari rekomendasi teratas dianggap relevan berdasarkan kriteria genre.
-    Recall@10 = 0.0006: Nilai recall yang sangat rendah ini mengindikasikan bahwa meskipun model memberikan beberapa rekomendasi relevan di top-10, ada sejumlah besar anime "relevan" lainnya di seluruh dataset yang tidak berhasil masuk ke daftar rekomendasi teratas ini. Hal ini wajar untuk Content-Based Filtering karena "total item relevan" bisa sangat besar (semua anime dengan genre yang sama) dan model hanya menghasilkan daftar rekomendasi yang relatif pendek (Top-K).
+      - Precision@10 = 1.0000: Dari 10 anime yang direkomendasikan untuk 'Fullmetal Alchemist: Brotherhood', 10 di antaranya (100%)             memiliki setidaknya satu genre yang sama dengan anime input. Ini menunjukkan bahwa semua rekomendasi teratas dianggap relevan             berdasarkan kriteria genre.
+      - Recall@10 = 0.0014: Nilai recall ini mengindikasikan bahwa meskipun model memberikan rekomendasi yang sangat presisi di top-10,         ada sejumlah besar anime "relevan" lainnya di seluruh dataset yang tidak berhasil masuk ke daftar rekomendasi teratas ini. Hal ini        wajar untuk Content-Based Filtering karena "total item relevan" bisa sangat besar (semua anime dengan genre yang sama) dan model          hanya menghasilkan daftar rekomendasi yang relatif pendek (Top-K).
 
     Contoh Perhitungan untuk 'Naruto' dengan K=10:
-
-    Precision@10: 0.9000
-    Recall@10: 0.0009
+    - Precision@10: `1.0000`
+    - Recall@10: `0.0014`
 
     Interpretasi:
-
-    Precision@10 = 0.9000: Untuk 'Naruto', 9 dari 10 rekomendasi teratas memiliki setidaknya satu genre yang sama, menunjukkan presisi yang sangat tinggi.
-    Recall@10 = 0.0009: Mirip dengan contoh sebelumnya, recall tetap rendah karena banyaknya potensi item relevan di seluruh dataset.
-
+      - Precision@10 = 1.0000: Untuk 'Naruto', 10 dari 10 rekomendasi teratas (100%) memiliki setidaknya satu genre yang sama,                  menunjukkan presisi yang sempurna.
+      - Recall@10 = 0.0014: Mirip dengan contoh sebelumnya, recall tetap rendah karena banyaknya potensi item relevan di seluruh dataset.
+  
 - Ringkasan Makna:
 Content-Based Filtering menunjukkan presisi yang baik dalam merekomendasikan anime dengan genre yang serupa. Ini berarti rekomendasi yang diberikan kemungkinan besar akan sesuai dengan selera genre pengguna. Namun, kemampuannya untuk menemukan semua anime relevan (Recall) sangat terbatas karena hanya berfokus pada kemiripan fitur dan menghasilkan daftar rekomendasi yang pendek.
 
